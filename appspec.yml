@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /webapps/react-create-app
+permissions:
+  - object: /webapps/react-create-app
+    owner: root
+    mode: 755
+    type:
+      - directory
+hooks:
+  AfterInstall:
+    - location: /install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: /start.sh
+      runas: root
+      timeout: 60
+
